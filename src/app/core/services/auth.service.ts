@@ -1,9 +1,24 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor() {
+ 
+   }
+   http = inject(HttpClient);
+
+   apiUrl = 'http://api.alquran.cloud/v1/edition';
+
+   fetchData(): Observable<any> {
+     return this.http.get(this.apiUrl);
+   }
+
+
+
 }
