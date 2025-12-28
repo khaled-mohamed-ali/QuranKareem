@@ -13,7 +13,7 @@ export class AuthService {
    }
    http = inject(HttpClient);
 
-   apiUrl = 'http://api.alquran.cloud/v1/edition';
+   apiUrl = 'http://api.alquran.cloud/v1/quran/quran-uthmani ';
 
    fetchData(): Observable<any> {
      return this.http.get(this.apiUrl);
