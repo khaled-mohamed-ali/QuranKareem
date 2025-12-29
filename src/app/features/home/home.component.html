@@ -1,1 +1,9 @@
-
+<div class="container">
+    <div class="row text-center">
+        @for (surah of data(); track surah) {
+        <div class="col-4 ">
+            <app-surah [Surah]="surah"/>
+        </div>
+        }
+    </div>
+</div>
