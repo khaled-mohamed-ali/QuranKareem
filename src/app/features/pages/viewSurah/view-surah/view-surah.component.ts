@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { AuthService } from '../../../../core/services/auth.service';
+import { Surah } from '../../../../shared/models/surah';
 
 @Component({
   selector: 'app-view-surah',
@@ -7,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrl: './view-surah.component.css'
 })
 export class ViewSurahComponent {
+  getData = inject(AuthService);
+  surah = signal<Surah | null>(null);
+
+  ngOnInit() {
+    this.surah.set(this.getData.surah())
+
+    // setTimeout(() => {
+    //   console.log(this.surah(), 'skfjdk')
+    // }
+    //   , 2000);
+
+  }
 
 }

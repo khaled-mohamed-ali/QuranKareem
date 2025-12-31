@@ -1,1 +1,8 @@
-<p>view-surah works!</p>
+<h2 class="text-center">{{this.surah()?.['name']}}</h2>
+<div class=" row fs-4">
+    @for(ayah of this.surah()?.['ayahs'];track $index) {
+        <div class='ayah col-12'>
+            {{ayah.text}}
+        </div>
+    }
+</div>
