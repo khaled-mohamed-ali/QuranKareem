@@ -1,13 +1,10 @@
-
-
 <main class="main">
 
   <div class="content">
-
-<app-navbar></app-navbar>
-    
-    <app-home></app-home>
-
+    <app-navbar/>
+    <div class="container">
+      <router-outlet />
+      <!-- <app-home></app-home> -->
+    </div>
   </div>
 </main>
-<router-outlet />

@@ -1,6 +1,5 @@
 .ayah {
     margin-top: 35px;
-    
     font-size: 28px;
     display: flex;
     line-height: 1.8;
@@ -10,4 +9,20 @@
     padding: 24px 0;
     font-family: 'Amiri', 'Scheherazade', serif;
 
+
 }
+
+.ayah-sympol {
+    display: block;
+    position: relative;
+    top: -5%
+   
+  }
+
+  .ayah-number {
+    position: absolute;
+    font-size: 1.5em;
+    top: 20%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+  }

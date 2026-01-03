@@ -1,8 +1,23 @@
 <h2 class="text-center">{{this.surah()?.['name']}}</h2>
 <div class=" row fs-4">
+    @if(audioList.length > 0 && audioList[currentIndex]) {
+        <audio
+            #audioPlayer
+            [src]="audioList[currentIndex]"
+            (ended)="['onAudioEnded()']"
+            controls>
+        </audio>
+    }
+  
     @for(ayah of this.surah()?.['ayahs'];track $index) {
-        <div class='ayah col-12'>
-            {{ayah.text}}
+    <div class='ayah col-12'>
+      
+        {{ayah.text}}
+        <div class="ayah-sympol fs-1 fw-bolder">
+              &#1757;
+            <span class="fs-6 fw-bolder ayah-number">{{$index + 1}}
+            </span>
         </div>
+    </div>
     }
 </div>

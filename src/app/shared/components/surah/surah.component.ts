@@ -1,17 +1,20 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Surah } from '../../models/surah';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-surah',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './surah.component.html',
   styleUrl: './surah.component.css'
 })
 export class SurahComponent {
-
-  ngOnInit() {
-    console.log(this.Surah?.['ayahs'].length)
-  }
+  getData = inject(AuthService);
 
   @Input() Surah!: Surah;
+
+  setSurah() {
+    this.getData.surah.set(this.Surah);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { AuthService } from '../../core/services/auth.service';
-import { Surah } from '../../shared/models/surah';
-import { SurahComponent } from "../../shared/components/surah/surah.component";
+import { AuthService } from '../../../core/services/auth.service';
+import { Surah } from '../../../shared/models/surah';
+import { SurahComponent } from "../../../shared/components/surah/surah.component";
 
 
 
@@ -30,9 +30,9 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getData()
-    setTimeout(()=> {
-      console.log(this.data())
-    },2000) 
+    // setTimeout(()=> {
+    //   console.log(this.data())
+    // },2000) 
   }
 
 
