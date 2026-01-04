@@ -3,8 +3,7 @@
     @if(audioList.length > 0 && audioList[currentIndex]) {
         <audio
             #audioPlayer
-            [src]="audioList[currentIndex]"
-            (ended)="['onAudioEnded()']"
+            (ended)="onAudioEnded()"
             controls>
         </audio>
     }

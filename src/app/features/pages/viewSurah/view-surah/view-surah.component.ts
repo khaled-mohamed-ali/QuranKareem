@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { AuthService } from '../../../../core/services/auth.service';
 import { Surah } from '../../../../shared/models/surah';
 
@@ -9,64 +9,67 @@ import { Surah } from '../../../../shared/models/surah';
   styleUrl: './view-surah.component.css'
 })
 export class ViewSurahComponent {
-[x: string]: any;
+
   getData = inject(AuthService);
   surah = signal<Surah | null>(null);
-  audioList :string[]  = [];
-
-//   ngOnInit() {
-//     // this.audioUrl = this.getData.surah()?.['ayahs']?.[1].audio
-//     this.surah()?.ayah?.map(audio => console.log(audio,'skdl'))
+  audioList: string[] = [];
 
 
 
-// }
+  currentIndex = 0;
 
 
-
-currentIndex = 0;
-audio = new Audio();
-
-ngOnInit() {
-
+  @ViewChild('audioPlayer')
+  audioPlayer!: ElementRef<HTMLAudioElement>;
   
-  this.surah.set(this.getData.surah());
+  ngOnInit() {
 
-  setTimeout(() => {
+
+    this.surah.set(this.getData.surah());
+
     const ayahs = this.surah()?.['ayahs'];
     if (Array.isArray(ayahs)) {
       ayahs.forEach((x: any) => this.audioList.push(x.audio));
     }
-    console.log(this.audioList,'skfjdk');
-  }, 2000);
-  this.playCurrentAudio();
 
-  this.audio.addEventListener('ended', () => {
-    this.playNext();
-  });
-}
 
-playCurrentAudio() {
-  if (this.currentIndex < this.audioList.length) {
-    this.audio.src = this.audioList[this.currentIndex];
-    this.audio.load();
-    this.audio.play();
+
   }
-}
 
-playNext() {
-  this.currentIndex++;
+  playCurrentAudio() {
+    const audio = this.audioPlayer.nativeElement;
+    
+    if (!audio.src) {
+      audio.src = this.audioList[this.currentIndex];
+    }
 
-  if (this.currentIndex < this.audioList.length) {
-    this.playCurrentAudio();
-  } else {
-    console.log('All audios finished');
+    if (this.currentIndex < this.audioList.length) {
+      audio.src = this.audioList[this.currentIndex];
+      audio.load();
+      audio.play();
+    }
   }
-}
 
-pauseAudio() {
-  this.audio.pause();
-}
+  playNext() {
+    console.log('work');
+    this.currentIndex++;
+
+
+    if (this.currentIndex < this.audioList.length) {
+      this.playCurrentAudio();
+    } else {
+      console.log('All audios finished');
+    }
+  }
+
+  pauseAudio() {
+    // this.audioPlayer.pause();
+  }
+
+  onAudioEnded() {
+      this.playNext();
+
+  }
 
 
 }
