@@ -1,75 +1,119 @@
-import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth.service';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  signal,
+  effect,
+  inject,
+  AfterViewInit
+} from '@angular/core';
 import { Surah } from '../../../../shared/models/surah';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-view-surah',
-  imports: [],
   templateUrl: './view-surah.component.html',
   styleUrl: './view-surah.component.css'
 })
-export class ViewSurahComponent {
+// export class ViewSurahComponent {
 
-  getData = inject(AuthService);
+//   getData = inject(AuthService);
+//   surah = signal<Surah | null>(null);
+//   audioList: string[] = [];
+//   currentIndex = 0;
+
+//   @ViewChild('audioPlayer')
+//   audioPlayer!: ElementRef<HTMLAudioElement>;
+
+//   constructor() {
+//     effect(() => {
+//       const surahValue = this.surah();
+//       if (surahValue?.['ayahs']?.length) {
+//         this.audioList = surahValue?.['ayahs'].map((a: { audio: any; }) => a.audio);
+//         this.currentIndex = 0;
+//       }
+//     });
+//   }
+
+//   ngOnInit() {
+//     this.surah.set(this.getData.surah())
+//     setTimeout(()=> {
+//       console.log(this.surah())
+
+//     },2000)
+//   }
+
+//   playCurrentAudio() {
+//     if (!this.audioList.length) return;
+
+//     const audio = this.audioPlayer.nativeElement;
+//     audio.src = this.audioList[this.currentIndex];
+//     audio.load();
+//     audio.play().catch(() => {});
+//   }
+
+//   playNext() {
+//     if (this.currentIndex < this.audioList.length - 1) {
+//       this.currentIndex++;
+//       this.playCurrentAudio();
+//     }
+//   }
+
+//   pauseAudio() {
+//     this.audioPlayer?.nativeElement.pause();
+//   }
+
+//   onAudioEnded() {
+//     this.playNext();
+//   }
+// }
+
+export class ViewSurahComponent  {
+
   surah = signal<Surah | null>(null);
   audioList: string[] = [];
-
-
-
   currentIndex = 0;
-
 
   @ViewChild('audioPlayer')
   audioPlayer!: ElementRef<HTMLAudioElement>;
-  
+
+  constructor(private auth: AuthService) {
+    // effect(() => {
+    //   const s = this.surah();
+    //   if (s?.['ayahs']?.length) {
+    //     this.audioList = s?.['ayahs'].map((a: { audio: any; }) => a.audio);
+    //   }
+    // });
+  }
+
+
+
   ngOnInit() {
+    this.surah.set(this.auth.surah());
+    this.audioList.push(this.surah()?.['ayahs'].map((x: { audio: any; }) =>x.audio))
+    
+    setTimeout(()=> {
+      console.log(this.audioPlayer);
 
+    },3000)
 
-    this.surah.set(this.getData.surah());
-
-    const ayahs = this.surah()?.['ayahs'];
-    if (Array.isArray(ayahs)) {
-      ayahs.forEach((x: any) => this.audioList.push(x.audio));
-    }
-
-
-
+    this.playCurrentAudio()
   }
 
   playCurrentAudio() {
+    console.log('fkdkf')
+    if (!this.audioPlayer || !this.audioList.length) return;
+    console.log('fkdkf22222')
+
     const audio = this.audioPlayer.nativeElement;
-    
-    if (!audio.src) {
-      audio.src = this.audioList[this.currentIndex];
-    }
-
-    if (this.currentIndex < this.audioList.length) {
-      audio.src = this.audioList[this.currentIndex];
-      audio.load();
-      audio.play();
-    }
-  }
-
-  playNext() {
-    console.log('work');
-    this.currentIndex++;
-
-
-    if (this.currentIndex < this.audioList.length) {
-      this.playCurrentAudio();
-    } else {
-      console.log('All audios finished');
-    }
-  }
-
-  pauseAudio() {
-    // this.audioPlayer.pause();
+    audio.src = this.audioList[this.currentIndex];
+    audio.play().catch(console.error);
   }
 
   onAudioEnded() {
-      this.playNext();
-
+    this.currentIndex++;
+    if (this.currentIndex < this.audioList.length) {
+      this.playCurrentAudio();
+    }
   }
-
-
 }
