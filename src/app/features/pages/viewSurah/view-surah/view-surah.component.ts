@@ -78,41 +78,37 @@ export class ViewSurahComponent  {
   audioPlayer!: ElementRef<HTMLAudioElement>;
 
   constructor(private auth: AuthService) {
-    // effect(() => {
-    //   const s = this.surah();
-    //   if (s?.['ayahs']?.length) {
-    //     this.audioList = s?.['ayahs'].map((a: { audio: any; }) => a.audio);
-    //   }
-    // });
+    effect(() => {
+      const s = this.surah();
+      if (s?.['ayahs']?.length) {
+        this.audioList = s?.['ayahs'].map((a: { audio: any; }) => a.audio);
+      }
+    });
   }
 
+  ngAfterViewInit() {
+    this.playCurrentAudio()
 
+  }
+  
 
   ngOnInit() {
     this.surah.set(this.auth.surah());
-    this.audioList.push(this.surah()?.['ayahs'].map((x: { audio: any; }) =>x.audio))
-    
-    setTimeout(()=> {
-      console.log(this.audioPlayer);
-
-    },3000)
-
-    this.playCurrentAudio()
   }
 
   playCurrentAudio() {
-    console.log('fkdkf')
     if (!this.audioPlayer || !this.audioList.length) return;
-    console.log('fkdkf22222')
 
     const audio = this.audioPlayer.nativeElement;
     audio.src = this.audioList[this.currentIndex];
+    console.log(audio.src,'se')
     audio.play().catch(console.error);
   }
 
   onAudioEnded() {
     this.currentIndex++;
     if (this.currentIndex < this.audioList.length) {
+
       this.playCurrentAudio();
     }
   }
