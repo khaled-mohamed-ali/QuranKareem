@@ -87,7 +87,8 @@ export class ViewSurahComponent  {
   }
 
   ngAfterViewInit() {
-    this.playCurrentAudio()
+    this.playCurrentAudio();
+    
 
   }
   
@@ -97,8 +98,8 @@ export class ViewSurahComponent  {
   }
 
   playCurrentAudio() {
+console.log(this.currentIndex,'cur index')
     if (!this.audioPlayer || !this.audioList.length) return;
-
     const audio = this.audioPlayer.nativeElement;
     audio.src = this.audioList[this.currentIndex];
     console.log(audio.src,'se')

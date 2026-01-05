@@ -9,10 +9,9 @@
     }
   
     @for(ayah of this.surah()?.['ayahs'];track $index) {
-    <div class='ayah col-12'>
-      
+    <div [class.test]="$index === currentIndex" class='ayah col-12'>
         {{ayah.text}}
-        <div class="ayah-sympol fs-1 fw-bolder">
+        <div class="ayah-sympol fs-1 fw-bolder" >
               &#1757;
             <span class="fs-6 fw-bolder ayah-number">{{$index + 1}}
             </span>
