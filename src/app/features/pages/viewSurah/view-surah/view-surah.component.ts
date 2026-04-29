@@ -8,7 +8,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { Surah } from '../../../../shared/models/surah';
-import { AuthService } from '../../../../core/services/auth.service';
+import { AuthService } from '../../../../core/services/getData/getData.service';
 
 @Component({
   selector: 'app-view-surah',

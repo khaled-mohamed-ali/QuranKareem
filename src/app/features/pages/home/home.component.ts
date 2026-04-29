@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../../core/services/getData/getData.service';
 import { Surah } from '../../../shared/models/surah';
 import { SurahComponent } from "../../../shared/components/surah/surah.component";
 
