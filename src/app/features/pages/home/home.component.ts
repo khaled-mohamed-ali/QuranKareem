@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { AuthService } from '../../../core/services/getData/getData.service';
+import { GetDataService } from '../../../core/services/getData/getData.service';
 import { Surah } from '../../../shared/models/surah';
 import { SurahComponent } from "../../../shared/components/surah/surah.component";
 
@@ -13,13 +13,13 @@ import { SurahComponent } from "../../../shared/components/surah/surah.component
 })
 export class HomeComponent {
 
-  auth = inject(AuthService);
+  getDataApi = inject(GetDataService);
   data = signal<Surah[] | null>(null);
   
 
 
   getData() {
-    this.auth.fetchData().subscribe({
+    this.getDataApi.fetchData().subscribe({
       next: (res: any) => this.data.set(res.data.surahs)
     })
   }
@@ -30,9 +30,6 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getData()
-    // setTimeout(()=> {
-    //   console.log(this.data())
-    // },2000) 
   }
 
 

@@ -5,70 +5,29 @@ import {
   signal,
   effect,
   inject,
-  AfterViewInit
+  AfterViewInit,
+  QueryList,
+  ViewChildren
 } from '@angular/core';
 import { Surah } from '../../../../shared/models/surah';
-import { AuthService } from '../../../../core/services/getData/getData.service';
+import { GetDataService } from '../../../../core/services/getData/getData.service';
+
+
 
 @Component({
   selector: 'app-view-surah',
   templateUrl: './view-surah.component.html',
   styleUrl: './view-surah.component.css'
 })
-// export class ViewSurahComponent {
 
-//   getData = inject(AuthService);
-//   surah = signal<Surah | null>(null);
-//   audioList: string[] = [];
-//   currentIndex = 0;
 
-//   @ViewChild('audioPlayer')
-//   audioPlayer!: ElementRef<HTMLAudioElement>;
 
-//   constructor() {
-//     effect(() => {
-//       const surahValue = this.surah();
-//       if (surahValue?.['ayahs']?.length) {
-//         this.audioList = surahValue?.['ayahs'].map((a: { audio: any; }) => a.audio);
-//         this.currentIndex = 0;
-//       }
-//     });
-//   }
 
-//   ngOnInit() {
-//     this.surah.set(this.getData.surah())
-//     setTimeout(()=> {
-//       console.log(this.surah())
 
-//     },2000)
-//   }
-
-//   playCurrentAudio() {
-//     if (!this.audioList.length) return;
-
-//     const audio = this.audioPlayer.nativeElement;
-//     audio.src = this.audioList[this.currentIndex];
-//     audio.load();
-//     audio.play().catch(() => {});
-//   }
-
-//   playNext() {
-//     if (this.currentIndex < this.audioList.length - 1) {
-//       this.currentIndex++;
-//       this.playCurrentAudio();
-//     }
-//   }
-
-//   pauseAudio() {
-//     this.audioPlayer?.nativeElement.pause();
-//   }
-
-//   onAudioEnded() {
-//     this.playNext();
-//   }
-// }
-
-export class ViewSurahComponent  {
+export class ViewSurahComponent {
+  
+@ViewChildren('ayahElement')
+ayahElements!: QueryList<ElementRef>;
 
   surah = signal<Surah | null>(null);
   audioList: string[] = [];
@@ -77,7 +36,7 @@ export class ViewSurahComponent  {
   @ViewChild('audioPlayer')
   audioPlayer!: ElementRef<HTMLAudioElement>;
 
-  constructor(private auth: AuthService) {
+  constructor(private getDataService: GetDataService) {
     effect(() => {
       const s = this.surah();
       if (s?.['ayahs']?.length) {
@@ -88,29 +47,62 @@ export class ViewSurahComponent  {
 
   ngAfterViewInit() {
     this.playCurrentAudio();
-    
+
 
   }
-  
+
+
+
+  readonly basmala = 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
+
+removeBasmala(text: string): string {
+  return text.startsWith(this.basmala)
+    ? text.slice(this.basmala.length).trim()
+    : text;
+}
+
+
+scrollToCurrentAyah(): void {
+  const element = this.ayahElements.get(this.currentIndex);
+
+  if (element) {
+    element.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }
+}
+
+onAudioEnded(): void {
+  if (this.currentIndex < this.audioList.length - 1) {
+    this.currentIndex++;
+
+    this.scrollToCurrentAyah();
+
+    this.audioPlayer.nativeElement.src =
+      this.audioList[this.currentIndex];
+
+    this.audioPlayer.nativeElement.play();
+  }
+}
+
 
   ngOnInit() {
-    this.surah.set(this.auth.surah());
+    this.surah.set(this.getDataService.surah());
   }
 
   playCurrentAudio() {
-console.log(this.currentIndex,'cur index')
     if (!this.audioPlayer || !this.audioList.length) return;
     const audio = this.audioPlayer.nativeElement;
     audio.src = this.audioList[this.currentIndex];
-    console.log(audio.src,'se')
     audio.play().catch(console.error);
   }
 
-  onAudioEnded() {
-    this.currentIndex++;
-    if (this.currentIndex < this.audioList.length) {
+  // onAudioEnded() {
+  //   this.currentIndex++;
+  //   if (this.currentIndex < this.audioList.length) {
 
-      this.playCurrentAudio();
-    }
-  }
+  //     this.playCurrentAudio();
+  //   }
+  // }
 }

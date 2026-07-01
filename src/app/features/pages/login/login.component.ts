@@ -8,16 +8,13 @@ import { AuthService } from '../../../core/services/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-
 export class LoginComponent {
-  private readonly authService = inject(AuthService);
+  private auth = inject(AuthService);
 
   username = '';
   password = '';
 
   login() {
-    const ok = this.authService.login(this.username, this.password);
-    console.log('login result', ok);
+    this.auth.login(this.username, this.password);
   }
-
 }

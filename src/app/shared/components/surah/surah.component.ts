@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Surah } from '../../models/surah';
-import { AuthService } from '../../../core/services/auth.service';
+import { GetDataService } from '../../../core/services/getData/getData.service';
 
 @Component({
   selector: 'app-surah',
@@ -10,7 +10,7 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrl: './surah.component.css'
 })
 export class SurahComponent {
-  getData = inject(AuthService);
+  getData = inject(GetDataService);
 
   @Input() Surah!: Surah;
 
