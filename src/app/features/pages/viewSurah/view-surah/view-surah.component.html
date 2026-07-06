@@ -30,11 +30,11 @@
           class="ayah color-green text-center col-12">
 
           @if (ayah.text.startsWith(basmala)) {
-            <div class="text-center col-12">
+            <div class="text-center ">
               {{ removeBasmala(ayah.text) }}
             </div>
           } @else {
-            <div class="col-12">
+            <div class="">
               {{ ayah.text }}
             </div>
           }
