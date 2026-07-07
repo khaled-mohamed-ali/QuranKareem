@@ -30,9 +30,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.getData()
-  }
-
-
+}
 }
 
 

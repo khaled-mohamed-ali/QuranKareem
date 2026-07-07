@@ -10,13 +10,24 @@
 
 .surah:hover {
     cursor: pointer;
-    border: 2px solid #98CEFF;
+    border: 2px solid #0b8f6c;
     transition: background 0.5s ease-in-out;
 
 }
-
+/* 
 .surah:hover .square{
-    background-color: #98CEFF;
-    transition: background 0.5s ease-in-out;
+    background-color: #0b8f6c;
+    color:white;
+    transition: background color 0.5s ease-in-out;
 
+} */
+
+.square {
+    transition: background-color 0.5s ease-in-out,
+                color 0.5s ease-in-out;
+}
+
+.surah:hover .square {
+    background-color: #0b8f6c;
+    color: white;
 }

@@ -18,7 +18,12 @@ export class GetDataService {
 
   //  apiUrl = 'http://api.alquran.cloud/v1/quran/quran-uthmani ';
 
-   apiUrl = 'https://api.alquran.cloud/v1/quran/ar.alafasy';
+  //  apiUrl = 'https://api.alquran.cloud/v1/quran/ar.alafasy';
+
+  apiUrl = 'https://ummahapi.com/api/quran/surahs';
+
+
+
    
 
    fetchData(): Observable<any> {

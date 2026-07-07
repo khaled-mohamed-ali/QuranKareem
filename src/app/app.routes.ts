@@ -7,7 +7,7 @@ import { ViewSurahComponent } from './features/pages/viewSurah/view-surah/view-s
 export const routes: Routes = [
    
     {
-        path: '',
+        path: 'surahs',
         component: HomeComponent
     },
     

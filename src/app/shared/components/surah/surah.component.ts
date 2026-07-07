@@ -17,4 +17,7 @@ export class SurahComponent {
   setSurah() {
     this.getData.surah.set(this.Surah);
   }
+
+  ngOnInit() {
+  }
 }

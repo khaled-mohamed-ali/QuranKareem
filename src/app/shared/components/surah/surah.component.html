@@ -9,7 +9,7 @@
                         <span style="padding-top: 3px; transform:rotate(-45deg);">{{Surah?.['number'] + ''}}</span>
 
                     </div>
-                    <small class="fw-bolder "> @if(Surah?.['revelationType'] == 'Meccan') {
+                    <small class="fw-bolder "> @if(Surah?.['revelation_place'] == "makkah") {
                         <p class=" mb-0 pt-1">
                             مكية
                         </p>
@@ -26,13 +26,13 @@
 
 
                 <div class="col">
-                    <h6 class="mb-0 fw-semibold">{{Surah?.['name']}}</h6>
+                    <h6 class="mb-0 fw-semibold">{{Surah?.['name_arabic']}}</h6>
                     <small class="text-muted">{{Surah?.['englishName']}}</small>
                 </div>
 
                 <div class="col-auto text-center">
                     <h6 class="mb-0 fw-semibold">عدد الايــات</h6>
-                    <small class="text-muted text-center fw-bolder">{{Surah?.['ayahs'].length}}</small>
+                    <small class="text-muted text-center fw-bolder">{{Surah?.['verses_count']}}</small>
                 </div>
 
             </div>
