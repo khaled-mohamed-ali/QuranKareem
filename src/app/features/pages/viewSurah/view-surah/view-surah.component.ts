@@ -25,9 +25,9 @@ import { GetDataService } from '../../../../core/services/getData/getData.servic
 
 
 export class ViewSurahComponent {
-  
-@ViewChildren('ayahElement')
-ayahElements!: QueryList<ElementRef>;
+
+  @ViewChildren('ayahElement')
+  ayahElements!: QueryList<ElementRef>;
 
   surah = signal<Surah | null>(null);
   audioList: string[] = [];
@@ -39,9 +39,8 @@ ayahElements!: QueryList<ElementRef>;
   constructor(private getDataService: GetDataService) {
     effect(() => {
       const s = this.surah();
-      if (s?.['ayahs']?.length) {
-        this.audioList = s?.['ayahs'].map((a: { audio: any; }) => a.audio);
-      }
+      this.audioList.push(s?.['audio']?.['example_audio'])
+
     });
   }
 
@@ -55,36 +54,36 @@ ayahElements!: QueryList<ElementRef>;
 
   readonly basmala = 'بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ';
 
-removeBasmala(text: string): string {
-  return text.startsWith(this.basmala)
-    ? text.slice(this.basmala.length).trim()
-    : text;
-}
-
-
-scrollToCurrentAyah(): void {
-  const element = this.ayahElements.get(this.currentIndex);
-
-  if (element) {
-    element.nativeElement.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+  removeBasmala(text: string): string {
+    return text.startsWith(this.basmala)
+      ? text.slice(this.basmala.length).trim()
+      : text;
   }
-}
 
-onAudioEnded(): void {
-  if (this.currentIndex < this.audioList.length - 1) {
-    this.currentIndex++;
 
-    this.scrollToCurrentAyah();
+  scrollToCurrentAyah(): void {
+    const element = this.ayahElements.get(this.currentIndex);
 
-    this.audioPlayer.nativeElement.src =
-      this.audioList[this.currentIndex];
-
-    this.audioPlayer.nativeElement.play();
+    if (element) {
+      element.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
   }
-}
+
+  onAudioEnded(): void {
+    if (this.currentIndex < this.audioList.length - 1) {
+      this.currentIndex++;
+
+      this.scrollToCurrentAyah();
+
+      this.audioPlayer.nativeElement.src =
+        this.audioList[this.currentIndex];
+
+      this.audioPlayer.nativeElement.play();
+    }
+  }
 
 
   ngOnInit() {
