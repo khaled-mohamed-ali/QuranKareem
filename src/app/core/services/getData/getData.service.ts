@@ -21,7 +21,8 @@ export class GetDataService {
   //  apiUrl = 'https://api.alquran.cloud/v1/quran/ar.alafasy';
 
   apiUrl = 'https://ummahapi.com/api/quran/surahs';
-
+  
+ 
 
 
    
@@ -30,6 +31,9 @@ export class GetDataService {
      return this.http.get(this.apiUrl);
    }
 
+   getSurahData(surahNumber:number):Observable<any> {
+    return this.http.get(`https://ummahapi.com/api/quran/surah/${surahNumber}`);
+   }
  
 
 

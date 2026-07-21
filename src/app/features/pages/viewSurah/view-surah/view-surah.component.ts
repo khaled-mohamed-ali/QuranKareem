@@ -26,6 +26,7 @@ import { GetDataService } from '../../../../core/services/getData/getData.servic
 
 export class ViewSurahComponent {
 
+  getData = inject(GetDataService)
   @ViewChildren('ayahElement')
   ayahElements!: QueryList<ElementRef>;
 
@@ -42,6 +43,15 @@ export class ViewSurahComponent {
       this.audioList.push(s?.['audio']?.['example_audio'])
 
     });
+  }
+
+  getSurah(surahNumber:number) {
+    console.log(this.surah(),'surah'
+    );
+    this.getData.getSurahData(surahNumber).subscribe({
+      next: (x: any) => {
+        console.log(x);
+      }})
   }
 
   ngAfterViewInit() {
