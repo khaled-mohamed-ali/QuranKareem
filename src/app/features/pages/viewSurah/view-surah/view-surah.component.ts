@@ -30,27 +30,28 @@ export class ViewSurahComponent {
   getData = inject(GetDataService)
   private readonly route = inject(ActivatedRoute);
 
-  @ViewChildren('ayahElement')
-  ayahElements!: QueryList<ElementRef>;
 
   surah = signal<any | null>(null);
   audioList: string[] = [];
   currentIndex = 0;
 
-  @ViewChild('audioPlayer')
-  audioPlayer!: ElementRef<HTMLAudioElement>;
+  
+  @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
+  @ViewChildren('ayahElement')ayahElements!: QueryList<ElementRef>;
+
+
 
   constructor(private getDataService: GetDataService) {
     effect(() => {
       const s = this.surah();
-      this.audioList.push(s?.['audio']?.['example_audio'])
+      const data = s.verses?.map((ele:any)=> this.audioList.push(ele.audio.ayah_audio))
+    
 
     });
   }
 
   ngOnInit() {
-
-    this.route.paramMap.subscribe((params: { get: (arg0: string) => any; }) => {
+      this.route.paramMap.subscribe((params: { get: (arg0: string) => any; }) => {
       const id = Number(params.get('id'));
       this.getData.getSurahData(id).subscribe({
         next: (x: any) => {
@@ -59,7 +60,8 @@ export class ViewSurahComponent {
         }})
       
     });
-
+    const audio = this.audioPlayer;
+    console.log(audio,'audi')
   }
 
 
@@ -72,6 +74,7 @@ export class ViewSurahComponent {
   ngAfterViewInit() {
     this.playCurrentAudio();
 
+    
 
   }
 
@@ -116,6 +119,8 @@ export class ViewSurahComponent {
   playCurrentAudio() {
     if (!this.audioPlayer || !this.audioList.length) return;
     const audio = this.audioPlayer.nativeElement;
+    console.log(audio,'d')
+
     audio.src = this.audioList[this.currentIndex];
     audio.play().catch(console.error);
   }

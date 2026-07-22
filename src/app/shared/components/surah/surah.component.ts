@@ -13,7 +13,6 @@ import { ViewSurahComponent } from '../../../features/pages/viewSurah/view-surah
 export class SurahComponent {
   getData = inject(GetDataService);
   Surah = input.required<Surah>();
-  // surahNumber = signal<number>();
 
 
   setSurah() {
