@@ -23,26 +23,21 @@
     </div>
     } -->
 
-    @for (ayah of this.surah()?.['ayahs']; track $index) {
+    @for (ayah of this.surah()?.['verses']; track $index) {
         <div
           #ayahElement
           [class.test]="$index === currentIndex"
           class="ayah color-green text-center col-12">
 
-          @if (ayah.text.startsWith(basmala)) {
-            <div class="text-center ">
-              {{ removeBasmala(ayah.text) }}
-            </div>
-          } @else {
             <div class="">
-              {{ ayah.text }}
+              {{ ayah.arabic }}
             </div>
-          }
+          
 
           <div class="ayah-sympol fs-1 fw-bolder">
             &#1757;
             <span class="fs-6 fw-bolder ayah-number">
-              {{ $index + 1 }}
+              {{ ayah.ayah }}
             </span>
           </div>
           

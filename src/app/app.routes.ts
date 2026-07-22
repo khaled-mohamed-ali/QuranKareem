@@ -13,7 +13,7 @@ export const routes: Routes = [
     
     
     {
-        path: 'ViewSurah',
+        path: 'ViewSurah/:id',
         component: ViewSurahComponent
     }
 

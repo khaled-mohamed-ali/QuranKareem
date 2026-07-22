@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, input, Input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Surah } from '../../models/surah';
 import { GetDataService } from '../../../core/services/getData/getData.service';
@@ -12,12 +12,12 @@ import { ViewSurahComponent } from '../../../features/pages/viewSurah/view-surah
 })
 export class SurahComponent {
   getData = inject(GetDataService);
+  Surah = input.required<Surah>();
+  // surahNumber = signal<number>();
 
-  @Input() Surah!: Surah;
 
   setSurah() {
-    console.log(this.Surah?.['number'],'surad') 
-    this.getData.getSurahData(this.Surah?.['number'])
+    // this.surahNumber.set(this.Surah()?.['number'])
   }
 
   

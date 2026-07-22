@@ -11,6 +11,7 @@ import {
 } from '@angular/core';
 import { Surah } from '../../../../shared/models/surah';
 import { GetDataService } from '../../../../core/services/getData/getData.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -27,10 +28,12 @@ import { GetDataService } from '../../../../core/services/getData/getData.servic
 export class ViewSurahComponent {
 
   getData = inject(GetDataService)
+  private readonly route = inject(ActivatedRoute);
+
   @ViewChildren('ayahElement')
   ayahElements!: QueryList<ElementRef>;
 
-  surah = signal<Surah | null>(null);
+  surah = signal<any | null>(null);
   audioList: string[] = [];
   currentIndex = 0;
 
@@ -45,13 +48,25 @@ export class ViewSurahComponent {
     });
   }
 
+  ngOnInit() {
+
+    this.route.paramMap.subscribe((params: { get: (arg0: string) => any; }) => {
+      const id = Number(params.get('id'));
+      this.getData.getSurahData(id).subscribe({
+        next: (x: any) => {
+          this.surah.set(x.data)
+          console.log(this.surah())
+        }})
+      
+    });
+
+  }
+
+
   getSurah(surahNumber:number) {
     console.log(this.surah(),'surah'
     );
-    this.getData.getSurahData(surahNumber).subscribe({
-      next: (x: any) => {
-        console.log(x);
-      }})
+
   }
 
   ngAfterViewInit() {
@@ -96,9 +111,7 @@ export class ViewSurahComponent {
   }
 
 
-  ngOnInit() {
-    this.surah.set(this.getDataService.surah());
-  }
+
 
   playCurrentAudio() {
     if (!this.audioPlayer || !this.audioList.length) return;
