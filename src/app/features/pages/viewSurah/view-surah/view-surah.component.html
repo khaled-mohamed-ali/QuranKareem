@@ -1,13 +1,13 @@
 <h2 class="text-center py-5">{{this.surah()?.['name']}}</h2>
 <div class=" row text-center justify-content-end fs-4">
-    @if(audioList.length > 0 && audioList[currentIndex]) {
-    <audio #audioPlayer (ended)="onAudioEnded()" controls>
-    </audio>
-    }
-    <div class="col-12 fs-2 fw-lighter py-5">
-        <!-- {{ basmala }} -->
-    </div>
-    <!-- @for(ayah of this.surah()?.['ayahs'];track $index) {
+  @if(audioList.length > 0 && audioList[currentIndex]) {
+  <audio #audioPlayer (ended)="onAudioEnded()" controls>
+  </audio>
+  }
+  <div class="col-12 fs-2 fw-lighter py-5">
+    <!-- {{ basmala }} -->
+  </div>
+  <!-- @for(ayah of this.surah()?.['ayahs'];track $index) {
     <div [class.test]="$index === currentIndex" class='ayah color-green text-center col-12'>
         @if (ayah.text.startsWith(basmala)) {
         <div 
@@ -23,25 +23,26 @@
     </div>
     } -->
 
-    @for (ayah of this.surah()?.['verses']; track $index) {
-        <div
-          #ayahElement
-          [class.test]="$index === currentIndex"
-          class="ayah color-green text-center col-12">
+  @for (ayah of this.surah()?.['verses']; track $index) {
+  <div #ayahElement [class.test]="$index === currentIndex" class="ayah color-green text-center col-12">
 
-            <div class="">
-              {{ ayah.arabic }}
-            </div>
-          
+    <div class="">
+      {{ ayah.arabic }}
+    </div>
 
-          <div class="ayah-sympol fs-1 fw-bolder">
-            &#1757;
-            <span class="fs-6 fw-bolder ayah-number">
-              {{ ayah.ayah }}
-            </span>
-          </div>
-          
-        </div>
-      }
+
+    <div class="ayah-sympol fs-1 fw-bolder">
+      <img src="250px-Ayah.svg.webp">
+      <div class="ayah-number ">
+        <h6 font-weight="bold ">
+          {{ ayah.ayah }}
+        </h6>
+      </div>
+
+
+    </div>
+
+  </div>
+  }
 
 </div>

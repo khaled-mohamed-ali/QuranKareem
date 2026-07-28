@@ -12,19 +12,34 @@
 
 }
 
+.ayah-number {
+  width: 45px;
+  height: 45px;
+}
+
+.ornament {
+  width: 100%;
+  height: 100%;
+}
+
 .ayah-sympol {
     display: block;
     position: relative;
-    top: -5%
-   
+    top: -5%;
+    left: -5%;   
   }
 
   .ayah-number {
     position: absolute;
-    font-size: 1.5em;
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translate( -50%, -50%);
+    color: black;
+  }
+
+  .ayah-sympol img {
+    width: 50px;
+    height: 50px;
   }
 
   .test {
