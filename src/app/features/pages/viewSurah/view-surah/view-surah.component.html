@@ -1,6 +1,6 @@
 <h2 class="text-center py-5">{{this.surah()?.['name']}}</h2>
 <div class=" row text-center justify-content-end fs-4">
-  @if(audioList.length > 0 && audioList[currentIndex]) {
+    @if(audioList.length > 0 && audioList[currentIndex]) {
   <audio #audioPlayer (ended)="onAudioEnded()" controls>
   </audio>
   }
@@ -44,5 +44,3 @@
 
   </div>
   }
-
-</div>

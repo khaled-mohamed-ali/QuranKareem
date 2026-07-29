@@ -1,15 +1,25 @@
 .ayah {
-    margin-top: 35px;
-    font-size: 28px;
-    display: flex;
-    line-height: 1.8;
-    height: 250px;
-    border-bottom: 1px solid #eee;
-    gap: 24px;
-    padding: 24px 0;
-    font-family: 'Amiri', 'Scheherazade', serif;
+  margin-top: 35px;
+  font-size: 28px;
+  display: flex;
+  line-height: 1.8;
+  height: 250px;
+  border-bottom: 1px solid #eee;
+  gap: 24px;
+  padding: 24px 0;
+  font-family: 'Amiri', 'Scheherazade', serif;
 
 
+}
+
+.audio-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 98%);
+  z-index: 1000;
+  border-radius: 12px;
 }
 
 .ayah-number {
@@ -23,25 +33,25 @@
 }
 
 .ayah-sympol {
-    display: block;
-    position: relative;
-    top: -5%;
-    left: -5%;   
-  }
+  display: block;
+  position: relative;
+  top: -5%;
+  left: -5%;
+}
 
-  .ayah-number {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate( -50%, -50%);
-    color: black;
-  }
+.ayah-number {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+}
 
-  .ayah-sympol img {
-    width: 50px;
-    height: 50px;
-  }
+.ayah-sympol img {
+  width: 50px;
+  height: 50px;
+}
 
-  .test {
-    color: red;
-  }
+.test {
+  color: red;
+}

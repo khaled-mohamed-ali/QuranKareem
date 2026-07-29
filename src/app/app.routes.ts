@@ -10,6 +10,10 @@ export const routes: Routes = [
         path: 'surahs',
         component: HomeComponent
     },
+    {
+        path: 'istma3',
+        component: HomeComponent
+    },
     
     
     {
@@ -17,6 +21,8 @@ export const routes: Routes = [
         component: ViewSurahComponent
     }
 
+
+    
 
 
 ];
