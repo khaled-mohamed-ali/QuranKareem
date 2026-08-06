@@ -24,11 +24,25 @@
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a routerLink="/about" routerLinkActive="active">
           About
         </a>
-      </li>
+      </li> -->
+
+      @if (isAuthenticated()) {
+        <li class="nav-user">
+          <span class="user-greeting">Hi, {{ getCurrentUser() }}</span>
+          <button type="button" class="btn-logout" (click)="logout()">Logout</button>
+        </li>
+      } @else {
+        <li>
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li>
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+      }
     </ul>
   </div>
 </nav>

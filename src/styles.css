@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --qk-primary: #0b5d4b;
+  --qk-accent: #0b8f6c;
+  --qk-surface: #E7EAED;
+  --qk-text: #333;
+  --qk-card-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: var(--qk-text); }

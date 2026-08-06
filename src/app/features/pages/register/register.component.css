@@ -52,6 +52,12 @@
   border: 1px solid #f5c6cb;
 }
 
+.auth-alert-success {
+  background: #e8f5f1;
+  color: var(--qk-primary);
+  border: 1px solid #b8dfd3;
+}
+
 .auth-form {
   display: flex;
   flex-direction: column;

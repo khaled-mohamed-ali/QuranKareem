@@ -1,0 +1,167 @@
+[33mcommit 62c52cff062f59c49bb910c0d03a284640c73afe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Jul 29 13:54:50 2026 +0300
+
+    .
+
+[33mcommit c547befff331ef1c0ed8fe850a349e381dda347c[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Jul 29 13:51:09 2026 +0300
+
+    update the audio
+
+[33mcommit 913941dc33a6c08a474958e494a1213881ce1baf[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Tue Jul 28 07:49:13 2026 +0300
+
+    update the ayah number logo
+
+[33mcommit 6a1140c1a33b204e3660ff573c515a684f97abf8[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Wed Jul 22 22:03:07 2026 +0300
+
+    edit audio play
+
+[33mcommit d7891a8b58a85d051d5a8f464a735253e9df8c25[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Jul 22 12:52:49 2026 +0300
+
+    update view surah component
+
+[33mcommit 3d04acf03e204ee836afccd708959d32b2bddf82[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Tue Jul 21 23:49:37 2026 +0300
+
+    add get surah by number
+
+[33mcommit d58424bbfe80fca10f2ace0eee6cd8a61566aff8[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Sun Jul 19 22:16:48 2026 +0300
+
+    update the audio surah
+
+[33mcommit d0ba01af4a4228a74509cb7bd05346d8e0065574[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Tue Jul 7 18:45:33 2026 +0300
+
+    change api
+
+[33mcommit 185ab38a8edf0ade4cf019fb68eb4f04ec72c492[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Mon Jul 6 11:43:24 2026 +0300
+
+    change nav
+
+[33mcommit 56a2d02e0f110b32981d4949433a0a0347653674[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Jul 1 13:58:54 2026 +0300
+
+    .
+
+[33mcommit dbae487efb6f2e24d1866177464292ba692eb7a4[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Apr 29 14:19:30 2026 +0300
+
+    add login
+
+[33mcommit 479bf7cc7757b0e35c4be2bb946feaef83091c0d[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Thu Apr 2 13:26:58 2026 +0200
+
+    add firebase
+
+[33mcommit c36a4f63f0bfd58d0cfc50667ae0b923ec8b0566[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Mon Jan 5 20:24:59 2026 +0200
+
+    update audio
+
+[33mcommit 2121ae0ea087e9603560d92c683d9f6501394a98[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Mon Jan 5 19:51:24 2026 +0200
+
+    update the issu
+
+[33mcommit 2761967a6b55c975a3e181cdd6984fe79085a010[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Mon Jan 5 08:43:50 2026 +0200
+
+    update with audio issu 2
+
+[33mcommit dd4a2940c78c215e0aa6a640bdb6cea5424f0c2c[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Sun Jan 4 20:25:34 2026 +0200
+
+    update audio with issu
+
+[33mcommit f20e2a73117834f87a9eb3fcb17a63deed30977d[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Sat Jan 3 21:26:34 2026 +0200
+
+    add audio feature
+
+[33mcommit b4f08ce4c76353a07bc1bf5eaa17c4ae844ae7f2[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Thu Jan 1 19:55:10 2026 +0200
+
+     1
+
+[33mcommit 795af59032f12029d4374d2f7f1b31cb1d1a1b8e[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Wed Dec 31 21:41:45 2025 +0200
+
+    update viewSurah
+
+[33mcommit ec8ee5867f1c2596b28630701a5e46c153bfcd9b[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Tue Dec 30 21:41:28 2025 +0200
+
+    add surah view component and some retouch
+
+[33mcommit 25aa5b8e5165c155a7d01488e1115b2492cd4cae[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Mon Dec 29 20:34:45 2025 +0200
+
+    add surah component
+
+[33mcommit 3d24837fe761058aeb36d80f06627dd85cae6c5d[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Sun Dec 28 20:07:00 2025 +0200
+
+    add bootstrap and angular matrial
+
+[33mcommit ebcfb3a3b2a4adc72f2e25658b4b6ca08b27e3f9[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Sat Dec 27 19:36:18 2025 +0200
+
+    get the surah
+
+[33mcommit 529092ef6004c935bce7d7891d6e6baceb17ad53[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Fri Dec 26 19:11:25 2025 +0200
+
+    1
+
+[33mcommit 8e800ed10849820b502dd6f2efe6234466b2cb4d[m
+Author: khaled <dev.khaled.mohamed@gmail.com>
+Date:   Fri Dec 26 19:09:27 2025 +0200
+
+    fetch data
+
+[33mcommit d660762576ea9632c7dd690f577472fc3fd7e91c[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Thu Dec 25 01:56:40 2025 +0200
+
+    .
+
+[33mcommit 4933f7edc373e7004dac765fc1111d922bc92ac4[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Thu Dec 25 01:32:52 2025 +0200
+
+    first commit
+
+[33mcommit 7679e56a940690a669a773d0ded30f1f7f5a931c[m
+Author: khaled mohammed <dev.khaled.mohamed@gmail.com>
+Date:   Thu Dec 25 01:18:17 2025 +0200
+
+    initial commit
