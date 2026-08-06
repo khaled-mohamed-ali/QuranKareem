@@ -1,23 +1,25 @@
-<div class="container">
-    <div class="row text-center">
-        <div class="row">
-            
-            <div class="col">
-                <div ngbDropdown class="d-inline-block">
-                    <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-                        Toggle dropdown
-                    </button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <button ngbDropdownItem>Action - 1</button>
-                        <button ngbDropdownItem>Another Action</button>
-                        <button ngbDropdownItem>Something else is here</button>
-                    </div>
-                </div>
-            </div>
+<div class="container home-shell">
+    <div class="page-topbar">
+        <div class="page-title">Quran Kareem</div>
 
+        <div ngbDropdown class="theme-dropdown">
+            <button type="button" class="theme-dropdown-toggle" id="homeBrowseDropdown" ngbDropdownToggle>
+                Browse ricters
+            </button>
+            <div ngbDropdownMenu aria-labelledby="homeBrowseDropdown" class="theme-dropdown-menu">
+                @for(ricter of ricters(); track ricters.name) {
+                <button ngbDropdownItem class="theme-dropdown-item">{{ricter.name}}</button>
+                }
+                <!-- <button ngbDropdownItem class="theme-dropdown-item">Makkah Surahs</button>
+                <button ngbDropdownItem class="theme-dropdown-item">Madinah Surahs</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center g-4">
         @for (surah of data(); track surah) {
-        <div class="col-4 ">
-            <app-surah [Surah]="surah"/>
+        <div class="col-12 col-md-6 col-lg-4">
+            <app-surah [Surah]="surah" />
         </div>
         }
     </div>

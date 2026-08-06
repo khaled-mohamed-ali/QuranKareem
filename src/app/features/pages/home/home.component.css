@@ -1,0 +1,70 @@
+.home-shell {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.page-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--qk-primary), var(--qk-accent));
+  color: white;
+  box-shadow: var(--qk-card-shadow);
+}
+
+.page-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.theme-dropdown {
+  position: relative;
+}
+
+.theme-dropdown-toggle {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.theme-dropdown-toggle:hover,
+.theme-dropdown-toggle:focus {
+  background: rgba(255, 255, 255, 0.24);
+  outline: none;
+}
+
+.theme-dropdown-menu {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.4rem;
+  box-shadow: var(--qk-card-shadow);
+  min-width: 180px;
+}
+
+.dropdown-menu.show {
+    position:absolute;
+      inset: 0px 140px auto auto;
+
+}
+
+.theme-dropdown-item {
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  color: var(--qk-text);
+  font-weight: 600;
+}
+
+.theme-dropdown-item:hover,
+.theme-dropdown-item:focus {
+  background: rgba(11, 93, 75, 0.08);
+  color: var(--qk-primary);
+}

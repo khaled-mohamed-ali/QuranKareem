@@ -36,6 +36,9 @@ export class GetDataService {
    }
  
 
+  getReciters ():Observable<any>{
+    return this.http.get('https://ummahapi.com/api/quran/reciters');
+  }
 
    
 
