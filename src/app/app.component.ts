@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from "./features/pages/home/home.component";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { NavbarComponent } from "./core/navbar/navbar.component";
+import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 
 
 @Component({

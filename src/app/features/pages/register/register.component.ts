@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../../../core/services/auth/auth.service';
+import { AuthService } from '../../../features/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -39,6 +39,11 @@ export class RegisterComponent {
 
     const result = this.auth.register(this.username, this.password);
     this.isSubmitting = false;
+
+    if (typeof result !== 'object' || result === null || !('success' in result) || !('message' in result)) {
+      this.errorMessage = 'Registration failed.';
+      return;
+    }
 
     if (!result.success) {
       this.errorMessage = result.message;
